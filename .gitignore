@@ -1,0 +1,6 @@
+venv
+/bucket
+
+**__pycache__.py
+**.pyc
+**/**.pyc

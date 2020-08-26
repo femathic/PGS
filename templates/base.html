@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='logo192.png') }}" />
+  <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description"
+    content="Find Professors with relevant expertise for your course of study at any UK university." />
+  <meta property="og:title" content="👨‍🎓👩‍🎓Home of Postgraduate Studies" />
+  <meta property="og:site_name" content="👨‍🎓👩‍🎓Home of Postgraduate Studies" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="{{ url_for('static', filename='logo192.png') }}" />
+  <meta property="og:description"
+    content="Find Professors with relevant expertise for your course of study at any UK university." />
+  <link rel="stylesheet" href="{{ url_for('static', filename='montserrat_font.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='tailwind.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+  <title>👨‍🎓👩‍🎓Home of Postgraduate Studies</title>
+</head>
+
+<body class="m-0 p-0">
+  <div class="main">
+    <div class="px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
+
+      <div class="hero-headline flex flex-col items-center justify-center pt-24 text-center">
+        <h1 class=" font-bold text-2xl md:text-4xl theme-color">Home of Postgraduate Studies</h1>
+        <p class=" font-base text-sm md:text-base text-gray-600">
+          Find Professors with relevant expertise for your course of study at any UK university.
+        </p>
+      </div>
+      {% block content %}
+
+      {% endblock %}
+      <footer class="p-5 ml-0 md:ml-5 text-xs md:text-sm text-gray-600 text-center inline-flex items-center mb-32">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
+          class="svg-inline--fa fa-heart fa-w-24 theme-color w-6 h-6 mr-1 align-middle" role="img"
+          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path fill="currentColor"
+            d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
+          </path>
+        </svg>
+        <span>Made by <span class="font-bold text-base md:text-lg theme-color pr-8 pl-1">Me</span> All rights reserved
+          &copy; 2020</span>
+      </footer>
+    </div>
+  </div>
+
+
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <script src="{{ url_for('static', filename='bundle.js') }}"></script>
+</body>
+
+</html>

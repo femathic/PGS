@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class=" bg-white rounded-lg flex items-center w-full p-3 shadow-sm border border-gray-300 my-8">
+
+  <form class="w-full flex" action="/" method="POST">
+    <button type="submit" class="outline-none focus:outline-none">
+      <svg class="w-4 md:w-6 text-gray-600 h-4 md:h-6 cursor-pointer" fill="none" stroke-linecap="round"
+        stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24">
+        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
+    </button>
+    <input type="search" name="keyword" id="keyword" value="{{keyword}}" placeholder="type in anything"
+      onKeyPress="return checkSubmit(event)" class="w-full pl-4 text-sm outline-none focus:outline-none bg-transparent"
+      required="true" />
+    <div class="select hidden md:block">
+      <select name="school" id="school" class="text-sm outline-none focus:outline-none bg-transparent" onchange="changeSelected()">
+        <option value="all" {% if school=="all" %} selected="selected"{% endif %}>All</option>
+        <option value="dmu" {% if school=="dmu" %} selected="selected"{% endif %}>De Montfort University</option>
+        <option value="stir" {% if school=="stir" %} selected="selected"{% endif %}>University of Stirling</option>
+        <option value="aru" {% if school=="aru" %} selected="selected"{% endif %}>Anglia Ruskin University</option>
+      </select>
+    </div>
+  </form>
+
+
+</div>
+
+<div class="container w-100 mx-0">
+  {% if dataLength %}
+  <p class="font-light text-xs md:text-sm text-gray-400">
+    {{dataLength}} result(s) found in {{time}} seconds.
+  </p>
+  {% for data in data %}
+  <article class="text-gray-700 bg-gray-100 body-font overflow-hidden my-8 rounded">
+    <div class="container px-2 py-2 mx-auto">
+      <div class="w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+        <h2 class="text-sm title-font text-gray-600 tracking-widest">{{data.job}}</h2>
+        <h1 class="text-gray-900 text-2xl title-font font-medium mb-1">{{data.name}}</h1>
+        <div class="flex mb-4">
+          <span class="text-gray-600 ml-3 text-sm">{{data.phone}}</span>
+          <span class="ml-3 pl-3 border-l-2 border-gray-400 text-sm">{{data.email}}</span>
+        </div>
+        <p class="leading-relaxed border-b-2 border-gray-200 pb-6 my-4 text-base">
+          {{data.bio}}
+        </p>
+
+        <div class="flex">
+          <p class="text-xs title-font text-gray-700 pr-2">{{data.address}}</p>
+          <a href={{data.url}} target="_blank"
+            class="flex ml-auto text-white text-sm theme-background border-0 py-2 px-6 mr-4 focus:outline-none hover:bg-red-600 rounded">
+            Visit Profile
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+  {% endfor %}
+  {% endif %}
+  {% if noResults %}
+  <p class="font-medium text-sm md:text-base text-gray-800 text-center my-12 theme-color">
+    No results found, try to be more explicit by using obvious keywords in your search term.
+  </p>
+  {% endif %}
+</div>
+
+</div>
+
+{% endblock %}

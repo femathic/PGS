@@ -1,0 +1,12 @@
+body {
+  font-family: 'Montserrat', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.theme-background {
+  background: #FF6A00;
+  background: -webkit-linear-gradient(90.6deg, #FF6A00 0.42%, #EE0979 99.69%);
+  background: linear-gradient(90.6deg, #FF6A00 0.42%, #EE0979 99.69%);
+}
+.theme-color {
+  color: #FF6A00;
+}

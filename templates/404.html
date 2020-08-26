@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="font-base text-sm md:text-base text-gray-600 text-center mt-24">Oops! Looks like the page doesn't exist anymore</h1>
+
+<p class="font-base text-sm md:text-base text-gray-600 text-center mb-24">
+  <a class="theme-color font-semibold " href="{{ url_for('home') }}">Click Here</a>
+    to go to the Search Page
+</p>
+{% endblock %}
